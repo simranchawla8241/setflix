@@ -1,0 +1,50 @@
+<!-- <div class="carousel-inner" *ngFor="let movie of ('http://www.omdbapi.com/?s=201&apikey=a6c1ca03'| cacheapi).Search;let i=index" > -->
+  <!-- <h1 style="color:green;">i</h1> -->
+  <!-- <div class="{{i==1? 'carousel-item active':'carousel-item'}}" *ngIf="movie.Year=='2019'" >
+    <img class="d-block w-100" src={{movie.Poster}} alt="First slide">
+  </div> -->
+  <!-- carousel div-->
+  <!-- <div *ngIf="movie.Year=='2019' && movie.Poster!='N/A'">
+      <img class="sliderImg" style="width:100%; height: 600px;" src="{{movie.Poster}}" alt="Random second slide">
+      <div class="carousel-caption">
+           <h3>{{movie.Title}}</h3> 
+          <p>{{movie.Year}}</p> 
+      </div>
+    </div>
+</div> -->
+
+
+
+<!-- movie list -->
+<div class="movieList" id="movie-show" *ngIf="message!='default message'">
+    <h2 class="header-text">Showing results for: <strong>{{message}}</strong></h2>
+
+    <div class="row" >
+      <div class="col-sm-4" *ngFor="let movie of ('http://www.omdbapi.com/?s='+message+'&apikey=a6c1ca03'|cacheapi).Search">
+       
+            <div class="card">
+              <img class="card-img-top card-image" src="{{movie.Poster=='N/A' && 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM5BMvVJfq-yeKU5vJloUOeE58Rw0U4ABfIovM32GzEjQMmO35'|| movie.Poster}}" alt="Card image cap" >
+              <div class="card-body">
+                <h5 class="card-title landing-text">{{movie.Title}}</h5><br>
+                <p class="card-text landing-text">{{movie.Year}}</p>
+                <a href="#" style="margin:10px" class="btn btn-danger">Play</a>
+                <a href="#" class="btn btn-danger">+My list</a>
+              </div>
+        </div>
+        
+      </div>
+    
+  </div>
+</div>
+
+
+ 
+
+  <!-- <div class="col-sm-3" *ngFor="let movie of ('http://www.omdbapi.com/?s='+searchBox.value+'&apikey=a6c1ca03'|cacheapi).Search"> -->
+
+<!-- 
+<div id="movie-show" class="container" >
+  <div *ngFor="let movie of ('http://www.omdbapi.com/?s='+title+'&apikey=a6c1ca03'|cacheapi).Search">
+    <li>{{movie.Title}}</li>
+  </div>
+</div> -->

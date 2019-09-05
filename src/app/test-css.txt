@@ -1,37 +1,22 @@
 html, body {
     height: 100%;
     width: 100%;
-    scroll-behavior: smooth;
 }
-  
 
 .navbar {
     background-color: #000;
     padding: 1% 0;
     font-size: 1.2em;
 }
-
 .brandlogo {
     color: red;
     margin: 0 2%;
     font-size: 1.7em;
 }
-.card-image{
-height:300px;
-}
-.movieList{
-    background:black;
-}
+
 .brandlogo:hover {
     color: rgb(255, 38, 0);
     margin: 0 2%;
-}
-.card{
-    padding: 4%;
-    margin: 12%;
-    background: #000;
-    margin-block-start: 40px;
-    border:1px solid grey;
 }
 
 .form-inline {
@@ -51,7 +36,7 @@ height:300px;
     width: 100%;
     background-size: cover;
     opacity: 0.6;
-    filter: grayscale(40%);
+    filter: grayscale(10%);
 }
 #home1 {
     display: table;
@@ -65,11 +50,6 @@ height:300px;
     text-align: center;
     vertical-align: middle;
     color: white;
-}
-.header-text{
-    margin-left: 30px;
-    background: #000;
-    color: #fff;
 }
 .landing-text h1 {
     font-size: 500%;
@@ -113,7 +93,4 @@ footer {
         padding-top: 5%;
         max-width: 100px;
     }
-    
 }
-
-

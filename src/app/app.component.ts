@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { OmdbServiceClient } from './services/omdb.service.client';
+import {HttpClient} from '@angular/common/http';
+import {movie} from './classes/movie';
+//
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Netflix';
+title = 'Netflix';
+constructor(private omdbService: OmdbServiceClient) {
+    
+
+}
+
+listmovies:movie[];
+ngOnInit(){
+
+  this.omdbService.searchMovieByTitle("2019").subscribe
+  (
+    data=>
+    {
+      this.listmovies=data;
+    }
+  );
+}
 }
