@@ -14,30 +14,14 @@ export class OmdbTestComponent implements OnInit
    title:string;
 
    result:Object;
-  //  searchMovie(title:String){
-  //     this.omdbService.searchMovieByTitle(title)
-  //     .subscribe((result)=>{
-  //         this.result=result;
-  //         console.log(result);
-  //     });
 
-
-  //  }
   constructor(private omdbService: OmdbServiceClient,config: NgbCarouselConfig) 
   {
-    // this.omdbService.searchMovieByTitle("kalank")
-    //   .subscribe((result)=>{
-    //       this.result=result;
-    //       console.log(result);
-    //   });
 
-      //carousel settings
       config.interval=3000;
       config.wrap=true;
       config.keyboard=false;
       config.pauseOnHover=false;
-
-
    }
    
 

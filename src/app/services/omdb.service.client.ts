@@ -2,8 +2,8 @@
 import {Injectable} from "@angular/core";
 import {Http,Response} from '@angular/http';
 import 'rxjs/Rx';
-import { map, publishReplay, refCount ,startWith} from 'rxjs/operators';
-import { Observable ,BehaviorSubject} from 'rxjs';
+import { map, publishReplay, refCount ,startWith,catchError} from 'rxjs/operators';
+import { Observable ,BehaviorSubject,throwError} from 'rxjs';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReplaceSource } from 'webpack-sources';
 
@@ -18,57 +18,33 @@ export class OmdbServiceClient{
  searchMovieByTitle(title:String):Observable<any>
  {
     const url='http://www.omdbapi.com/?s='+title+'&apikey=a6c1ca03';
-
+    
      return this.httpclient.get(url);
-    //  console.log("service is working!");
-    //  const url='http://www.omdbapi.com/?s='+title+'&apikey=a6c1ca03';
-
-    //  return this.http.get(url)
-    //  .map((response: Response)=>{
-
-    //      return response.json();
-    //  });
-
      
  }
  changeMessage(message: string) {
    this.messageSource.next(message);
-   console.log("In change method");
- }
-
- search(title:String)
- {
   
-    console.log("In service method");
-     const url='http://www.omdbapi.com/?s='+title+'&apikey=a6c1ca03';
-
-     return this.httpclient.get(url)
-     .map((response: Response)=>{
-
-         return response;
-     });
-
-     
  }
-//  setTitle(title:String){
-//   this.title=title;
-//  }
 
-//  getTitle(){
-//    console.log("getUrls:"+this.title);
-//    return this.title;
-   
-//   }
+
+ handleError(error) {
+   console.log("ERROR REPONSE OTHER THAN 200");
+  let errorMessage = '';
+  if (error.error instanceof ErrorEvent) {
+    // client-side error
+    errorMessage = `Error: ${error.error.message}`;
+  } else {
+    // server-side error
+    errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  }
+  window.alert(errorMessage);
+   return throwError(errorMessage);
+}
 
  constructor(private httpclient:HttpClient)
  {
-    // const url='http://www.omdbapi.com/?s=batman&apikey=a6c1ca03';
- 
-    // return this.http.get(url)
-    // .map((response: Response)=>{
-
-    //     return response.json();
-    // });
+    
  }
 
 

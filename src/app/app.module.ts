@@ -17,6 +17,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { DataService } from "./services/data.services";
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { DataService } from "./services/data.services";
     LandingPageComponent,
     GenreComponent,
     MovieListComponent,
+    MovieDetailComponent,
     
   ],
   imports: [
@@ -36,7 +39,8 @@ import { DataService } from "./services/data.services";
     HttpModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [OmdbServiceClient,DataService],
   bootstrap: [AppComponent],

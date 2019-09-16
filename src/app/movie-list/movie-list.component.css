@@ -1,0 +1,12 @@
+.detail{
+padding: 50px;
+height: 600px;
+width: auto;
+}
+.text_detail{
+    margin-top: 250px;
+}
+.font-class{
+    font-style: italic;
+    font-weight: 400;
+}
